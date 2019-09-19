@@ -1,0 +1,68 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Cookiecliker : MonoBehaviour
+{
+
+
+
+    // Start is called before the first frame update
+
+    public int score = 0;
+    
+    Worker worker;
+    
+    
+    void Start()
+    {
+        
+        worker = GetComponent<Worker>();
+    }
+
+    private void Fixedupdate()
+    {
+        score++;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+		{
+			//this execute if condition is true
+			Debug.Log("cookie cliked");
+            score = score + 1;
+		}
+
+  
+
+        else
+        {
+            //Debug.Log("do it again");
+        }
+
+
+
+        if (score == 10)
+        {
+            Debug.Log("you got a 10!");
+            AddTen();
+            worker.enabled = true;
+        }
+        
+    }
+
+    void AddTen()
+    {
+        // the smart thing is : score = score + 10;
+        int HowManyTimes = 10;
+        while (HowManyTimes > 0)
+        {
+            //make it do something
+            score = score + 1;
+            //make howManyTimes smaller
+            HowManyTimes--;
+        }
+    }
+}
